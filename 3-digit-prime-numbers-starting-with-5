@@ -1,0 +1,34 @@
+function find_primes()
+    % Initialize
+    primesList = [];
+    
+    % Check numbers 500-599
+    for num = 500:599
+        if is_prime(num)
+            primesList = [primesList, num];
+            fprintf('Found prime: %d\n', num);
+        end
+    end
+    
+    % Display results
+    fprintf('\nAll 3-digit primes starting with 5:\n');
+    disp(primesList);
+    fprintf('\nTotal: %d primes\n', length(primesList));
+end
+
+function result = is_prime(n)
+    if n <= 1
+        result = false;
+        return;
+    end
+    for i = 2:sqrt(n)
+        if mod(n, i) == 0
+            result = false;
+            return;
+        end
+    end
+    result = true;
+end
+
+% Run the function
+find_primes();
